@@ -1,0 +1,89 @@
+-----Project-----
+CREATE TABLE [Project](
+    [ID] [int] IDENTITY(1,1) NOT NULL,
+    [Project_ProductNo] [varchar](20) NOT NULL,
+    [ProjectName] [varchar](50) NOT NULL,
+    [ReportingCategory] [varchar](50) NOT NULL,
+    [LaunchStrategy] [varchar](50) NOT NULL,
+	[PatentInformation] [nvarchar](1000) NOT NULL,
+	[RegistrationPathway] [varchar](50) NOT NULL,
+	[ConstraintDate] [date] NOT NULL,
+	[SalesConstraintDate] [date] NOT NULL,
+	[TargetPatentEpiryDate] [date] NOT NULL,
+	 CONSTRAINT [PROJECT_PK] PRIMARY KEY ([Id])
+)
+
+-----Product-----
+CREATE TABLE [Product](
+    [ID] [int] IDENTITY(1,1) NOT NULL,
+    [Project_ProductNo] [varchar](50) NOT NULL,
+    [ProjectName] [varchar](50) NOT NULL,
+    [Type] [varchar](50) NOT NULL,
+    [Country] [varchar](50) NOT NULL,
+	[Molecule] [varchar](100) NOT NULL,
+	[TradeName] [varchar](50) NOT NULL,
+	[ActiveIngredient] [varchar](500) NOT NULL,
+	[RouteOfAdministration] [varchar](50) NOT NULL,
+	[SalesChannel] [varchar](50) NOT NULL,
+	[Shelflife] [varchar](50) NOT NULL,
+	[InnovatorBrand] [varchar](50) NOT NULL,
+	[SpiritStrength] [varchar](50) NOT NULL,
+	[Status] [varchar](50) NOT NULL,
+[FormularyCode] [varchar](50) NOT NULL,
+[UNSPCCode] [varchar](50) NOT NULL,
+[StorageConditions] [varchar](50) NOT NULL,
+[StorageTemp] [varchar](50) NOT NULL,
+[DangerousGoodsclass] [varchar](50) NOT NULL,
+	[Subrisk] [varchar](50) NOT NULL,
+	[spiritclass] [varchar](50) NOT NULL,
+	[PackagingGroup] [varchar](50) NOT NULL,
+	 CONSTRAINT [PRODUCT_PK] PRIMARY KEY ([Id])
+	 )
+
+-----SKU-----
+CREATE TABLE [SKU](
+    [ID] [int] IDENTITY(1,1) NOT NULL,
+    [Project_ProductNo] [varchar](50) NOT NULL,
+    [ProjectName] [varchar](50) NOT NULL,
+    [strength] [varchar](50) NOT NULL,
+    [packsize] [varchar](50) NOT NULL,
+	[doses] [varchar](100) NOT NULL,
+	[skucode] [varchar](50) NOT NULL,
+	[brand] [varchar](50) NOT NULL,
+	[form] [varchar](50) NOT NULL,
+	[packType] [varchar](50) NOT NULL,
+	[DrugSchedule] [varchar](50) NOT NULL,
+	[DeliveryDate] [date] NOT NULL,
+	[GTIN-R] [int] NOT NULL,
+	[GTIN-S] [int] NOT NULL,
+[GTIN-I] [int] NOT NULL,
+[Supplier] [varchar](50) NOT NULL,
+[Sponsor] [varchar](50) NOT NULL,
+[ARTGNumber] [varchar](50) NOT NULL,
+[distributedProduct] [varchar](50) NOT NULL,
+	[ItemNumber] [varchar](50) NOT NULL,
+	[Marketed] [varchar](50) NOT NULL,
+		 CONSTRAINT [SKU_PK] PRIMARY KEY ([Id])
+	 )
+
+-----Milestone-----
+CREATE TABLE [Milestone](
+    [ID] [int] IDENTITY(1,1) NOT NULL,
+    [Project_ProductNo] [varchar](20) NOT NULL,
+    [ProjectName] [varchar](50) NOT NULL,
+    [LaunchFinancialYear] [varchar](50) NOT NULL,
+    [TGASubmission_Planned] [date] NOT NULL,
+	[TGASubmission_Scheduled] [date] NOT NULL,
+	[TGASubmission_Actual] [date] NOT NULL,
+	[TGAApproval_Planned] [date] NOT NULL,
+	[TGAApproval_Scheduled] [date] NOT NULL,
+	[TGAApproval_Actual] [date] NOT NULL,
+	[CommercialLaunch_Planned] [date] NOT NULL,
+	[CommercialLaunch_Scheduled] [date] NOT NULL,
+	[CommercialLaunch_Actual] [date] NOT NULL,
+	[firstshipmentfrom3PL_Planned] [date] NOT NULL,
+	[firstshipmentfrom3PL_Scheduled] [date] NOT NULL,
+	[firstshipmentfrom3PL_Actual] [date] NOT NULL,
+	[TargetLaunchedDate_Planned] [date] NOT NULL,
+	 CONSTRAINT [Milestone_PK] PRIMARY KEY ([Id])
+)
